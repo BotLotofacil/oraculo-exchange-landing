@@ -665,3 +665,18 @@ footer {
   font-size: 10px;
   opacity: 0.85;
 }
+
+/* ===========================
+   Scroll Reveal Animation
+=========================== */
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: all 0.7s ease;
+}
+
+.reveal-active {
+  opacity: 1;
+  transform: translateY(0);
+}
