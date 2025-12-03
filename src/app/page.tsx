@@ -1,13 +1,20 @@
 // src/app/page.tsx
 "use client";
 
+import { useEffect } from "react";
+import { applyScrollReveal } from "./lib/scroll-reveal";
+
 export default function HomePage() {
   const year = new Date().getFullYear();
+
+  useEffect(() => {
+    applyScrollReveal();
+  }, []);
 
   return (
     <main>
       {/* HERO */}
-      <section className="hero">
+      <section className="hero" data-reveal>
         <div>
           <div className="hero-tag">
             <span className="hero-tag-dot" />
@@ -56,8 +63,12 @@ export default function HomePage() {
                 </div>
               </div>
               <div className="market-prices">
-                <div className="pill pill-yes">YES <span>R$ 0.62</span></div>
-                <div className="pill pill-no">NO <span>R$ 0.38</span></div>
+                <div className="pill pill-yes">
+                  YES <span>R$ 0.62</span>
+                </div>
+                <div className="pill pill-no">
+                  NO <span>R$ 0.38</span>
+                </div>
               </div>
             </div>
 
@@ -72,8 +83,12 @@ export default function HomePage() {
                 </div>
               </div>
               <div className="market-prices">
-                <div className="pill pill-yes">YES <span>R$ 0.44</span></div>
-                <div className="pill pill-no">NO <span>R$ 0.56</span></div>
+                <div className="pill pill-yes">
+                  YES <span>R$ 0.44</span>
+                </div>
+                <div className="pill pill-no">
+                  NO <span>R$ 0.56</span>
+                </div>
               </div>
             </div>
 
@@ -88,8 +103,12 @@ export default function HomePage() {
                 </div>
               </div>
               <div className="market-prices">
-                <div className="pill pill-yes">YES <span>R$ 0.29</span></div>
-                <div className="pill pill-no">NO <span>R$ 0.71</span></div>
+                <div className="pill pill-yes">
+                  YES <span>R$ 0.29</span>
+                </div>
+                <div className="pill pill-no">
+                  NO <span>R$ 0.71</span>
+                </div>
               </div>
             </div>
           </div>
@@ -102,7 +121,7 @@ export default function HomePage() {
       </section>
 
       {/* HOW IT WORKS */}
-      <section id="how" className="section">
+      <section id="how" className="section" data-reveal>
         <div className="section-header">
           <div>
             <h2 className="section-title">How it works</h2>
@@ -144,7 +163,7 @@ export default function HomePage() {
       </section>
 
       {/* FEATURED MARKETS */}
-      <section id="markets" className="section">
+      <section id="markets" className="section" data-reveal>
         <div className="section-header">
           <div>
             <h2 className="section-title">Featured market ideas</h2>
@@ -207,7 +226,7 @@ export default function HomePage() {
       </section>
 
       {/* SECURITY */}
-      <section id="security" className="section">
+      <section id="security" className="section" data-reveal>
         <div className="section-header">
           <div>
             <h2 className="section-title">Security and compliance</h2>
@@ -248,7 +267,7 @@ export default function HomePage() {
       </section>
 
       {/* FAQ */}
-      <section id="faq" className="section">
+      <section id="faq" className="section" data-reveal>
         <div className="section-header">
           <div>
             <h2 className="section-title">FAQ — Frequently asked questions</h2>
