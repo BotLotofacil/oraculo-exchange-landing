@@ -1,667 +1,293 @@
-:root {
-  --bg: #050816;
-  --bg-alt: #080b18;
-  --primary: #4f46e5;
-  --primary-soft: rgba(79, 70, 229, 0.12);
-  --accent: #22c55e;
-  --text: #e5e7eb;
-  --muted: #9ca3af;
-  --border: #1f2933;
-  --danger: #ef4444;
-  --card-radius: 18px;
-  --shadow-soft: 0 20px 50px rgba(0, 0, 0, 0.45);
-  --shadow-subtle: 0 10px 30px rgba(0, 0, 0, 0.35);
-}
+// src/app/page.tsx
+"use client";
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+export default function HomePage() {
+  const year = new Date().getFullYear();
 
-body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    sans-serif;
-  background: radial-gradient(circle at top, #111827, var(--bg));
-  color: var(--text);
-  line-height: 1.5;
-}
+  return (
+    <main>
+      {/* HERO */}
+      <section className="hero">
+        <div>
+          <div className="hero-tag">
+            <span className="hero-tag-dot" />
+            Event contracts — yes/no markets
+          </div>
+          <h1 className="hero-title">
+            Trade the <span>future</span> with simple <span>YES or NO</span> contracts.
+          </h1>
+          <p className="hero-subtitle">
+            Turn your view on inflation, elections, weather, and technology into
+            real positions in the market. Each contract can pay up to R$1 if your
+            prediction is correct.
+          </p>
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
+          <div className="hero-cta">
+            <button className="btn btn-primary">Get started</button>
+            <button className="btn btn-ghost">View live markets</button>
+          </div>
 
-.page {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
+          <div className="hero-meta">
+            <span>
+              <b>Limited risk</b> to the amount you invest per contract.
+            </span>
+            <span>
+              <b>Price = probability</b> that the market assigns to the event.
+            </span>
+          </div>
+        </div>
 
-/* HEADER */
+        {/* Right panel – sample markets */}
+        <aside className="hero-panel">
+          <div className="hero-panel-header">
+            <div className="hero-panel-title">Markets on the move</div>
+            <div className="hero-panel-pill">Sample real-time view</div>
+          </div>
 
-header {
-  position: sticky;
-  top: 0;
-  z-index: 40;
-  backdrop-filter: blur(16px);
-  background: radial-gradient(
-    circle at top,
-    rgba(15, 23, 42, 0.9),
-    rgba(3, 7, 18, 0.95)
+          <div className="markets-list">
+            <div className="market-card">
+              <div>
+                <div className="market-question">
+                  Will Brazil&apos;s official inflation for <b>2026</b> finish above <b>5.0%</b>?
+                </div>
+                <div className="market-meta">
+                  <span>Expires: Jan 15, 2027</span>
+                  <span className="badge badge-green">Economy</span>
+                </div>
+              </div>
+              <div className="market-prices">
+                <div className="pill pill-yes">YES <span>R$ 0.62</span></div>
+                <div className="pill pill-no">NO <span>R$ 0.38</span></div>
+              </div>
+            </div>
+
+            <div className="market-card">
+              <div>
+                <div className="market-question">
+                  Will the unemployment rate drop below <b>7%</b> by year-end?
+                </div>
+                <div className="market-meta">
+                  <span>Expires: Dec 31, 2026</span>
+                  <span className="badge badge-red">Labor</span>
+                </div>
+              </div>
+              <div className="market-prices">
+                <div className="pill pill-yes">YES <span>R$ 0.44</span></div>
+                <div className="pill pill-no">NO <span>R$ 0.56</span></div>
+              </div>
+            </div>
+
+            <div className="market-card">
+              <div>
+                <div className="market-question">
+                  Will it rain more than <b>300mm</b> in São Paulo in January?
+                </div>
+                <div className="market-meta">
+                  <span>Expires: Jan 31, 2026</span>
+                  <span className="badge badge-green">Weather</span>
+                </div>
+              </div>
+              <div className="market-prices">
+                <div className="pill pill-yes">YES <span>R$ 0.29</span></div>
+                <div className="pill pill-no">NO <span>R$ 0.71</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div className="panel-footer">
+            <span>Prices above are illustrative examples only.</span>
+            <a href="#markets">See all markets →</a>
+          </div>
+        </aside>
+      </section>
+
+      {/* HOW IT WORKS */}
+      <section id="how" className="section">
+        <div className="section-header">
+          <div>
+            <h2 className="section-title">How it works</h2>
+            <p className="section-subtitle">
+              Instead of betting on games or complex derivatives, you trade around
+              simple YES/NO questions. Each contract settles at R$0 or R$1.
+            </p>
+          </div>
+        </div>
+
+        <div className="steps-grid">
+          <div className="step-card">
+            <div className="step-number">1</div>
+            <div className="step-title">Choose a question</div>
+            <div className="step-text">
+              Browse the market list and select an event that makes sense to you:
+              inflation, politics, weather, technology, sports, and more.
+            </div>
+          </div>
+
+          <div className="step-card">
+            <div className="step-number">2</div>
+            <div className="step-title">Buy YES or NO contracts</div>
+            <div className="step-text">
+              The price (from R$0.01 to R$0.99) reflects the implied probability
+              that the market assigns to the event.
+            </div>
+          </div>
+
+          <div className="step-card">
+            <div className="step-number">3</div>
+            <div className="step-title">Wait for the outcome</div>
+            <div className="step-text">
+              If the event happens as you predicted, each contract pays R$1. If it
+              does not, the contract is worth R$0.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FEATURED MARKETS */}
+      <section id="markets" className="section">
+        <div className="section-header">
+          <div>
+            <h2 className="section-title">Featured market ideas</h2>
+            <p className="section-subtitle">
+              Replace the examples below with real categories and rulebooks for your future platform.
+            </p>
+          </div>
+          <div>
+            <button className="btn btn-ghost" style={{ fontSize: 12 }}>
+              View all markets
+            </button>
+          </div>
+        </div>
+
+        <div className="markets-grid">
+          <div className="market-card-large">
+            <div className="market-category">Economy</div>
+            <div className="market-question-lg">
+              Will the Brazilian policy rate (Selic) be cut by at least 1.50 p.p. by year-end?
+            </div>
+            <div className="market-footer">
+              <span>Implied probability: 53%</span>
+              <span>Closes: Dec 20, 2026</span>
+            </div>
+          </div>
+
+          <div className="market-card-large">
+            <div className="market-category">Politics</div>
+            <div className="market-question-lg">
+              Will party X win a majority in the next national election?
+            </div>
+            <div className="market-footer">
+              <span>Implied probability: 41%</span>
+              <span>Closes: Oct 05, 2026</span>
+            </div>
+          </div>
+
+          <div className="market-card-large">
+            <div className="market-category">Technology</div>
+            <div className="market-question-lg">
+              Will a major AI company announce an IPO by next year?
+            </div>
+            <div className="market-footer">
+              <span>Implied probability: 37%</span>
+              <span>Closes: Dec 31, 2026</span>
+            </div>
+          </div>
+
+          <div className="market-card-large">
+            <div className="market-category">Climate</div>
+            <div className="market-question-lg">
+              Will next summer's average temperature break historical records?
+            </div>
+            <div className="market-footer">
+              <span>Implied probability: 68%</span>
+              <span>Closes: Feb 28, 2026</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SECURITY */}
+      <section id="security" className="section">
+        <div className="section-header">
+          <div>
+            <h2 className="section-title">Security and compliance</h2>
+            <p className="section-subtitle">
+              Customize this section to align with your regulatory structure and partnerships.
+            </p>
+          </div>
+        </div>
+
+        <div className="security-card">
+          <div>
+            <div className="security-badge">
+              <span />
+              Infrastructure inspired by financial-market standards
+            </div>
+            <h3 style={{ fontSize: 15, margin: "10px 0 6px" }}>
+              Designed to protect users, data, and capital.
+            </h3>
+            <p style={{ fontSize: 13, color: "var(--muted)" }}>
+              Explain account protection, data security, custody processes, reconciliation, etc.
+            </p>
+            <ul className="security-list">
+              <li>• Strong authentication and access monitoring.</li>
+              <li>• Integration with regulated institutions for custody.</li>
+              <li>• Clear risk policies and exposure limits.</li>
+              <li>• Transparent rulebooks and third-party verification.</li>
+            </ul>
+          </div>
+          <div>
+            <p style={{ fontSize: 12, color: "var(--muted)", marginBottom: 10 }}>
+              Replace this placeholder with licenses, partnerships, regulatory references, etc.
+            </p>
+            <button className="btn btn-ghost" style={{ width: "100%" }}>
+              View security &amp; compliance policy
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section id="faq" className="section">
+        <div className="section-header">
+          <div>
+            <h2 className="section-title">FAQ — Frequently asked questions</h2>
+            <p className="section-subtitle">
+              Modify these answers based on your product structure and regulatory needs.
+            </p>
+          </div>
+        </div>
+
+        <div className="faq-grid">
+          <div className="faq-item">
+            <div className="faq-q">What is an event contract?</div>
+            <div className="faq-a">
+              An event contract pays R$1 if a specific YES/NO outcome happens; otherwise, R$0.
+            </div>
+          </div>
+
+          <div className="faq-item">
+            <div className="faq-q">How much can I gain or lose?</div>
+            <div className="faq-a">
+              You can only lose what you pay for each contract. The maximum return is R$1.
+            </div>
+          </div>
+
+          <div className="faq-item">
+            <div className="faq-q">Do I need to be a qualified investor?</div>
+            <div className="faq-a">
+              Adjust this answer according to whether your platform allows retail or only qualified clients.
+            </div>
+          </div>
+
+          <div className="faq-item">
+            <div className="faq-q">How do you confirm market results?</div>
+            <div className="faq-a">
+              Settlement should rely on public, transparent sources (IBGE, BCB, TSE, weather agencies, etc.).
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
   );
-  border-bottom: 1px solid rgba(148, 163, 184, 0.08);
-}
-
-.nav {
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 14px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.logo-mark {
-  width: 32px;
-  height: 32px;
-  border-radius: 999px;
-  background: radial-gradient(circle at 30% 0, #a855f7, #4f46e5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 14px;
-  color: white;
-  box-shadow: var(--shadow-soft);
-}
-
-.logo-text-main {
-  font-weight: 700;
-  font-size: 18px;
-  letter-spacing: 0.03em;
-}
-
-.logo-text-sub {
-  font-size: 11px;
-  color: var(--muted);
-}
-
-.nav-links {
-  display: flex;
-  gap: 24px;
-  font-size: 14px;
-  color: var(--muted);
-}
-
-.nav-links a {
-  position: relative;
-  padding-bottom: 2px;
-}
-
-.nav-links a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 0;
-  height: 2px;
-  background: linear-gradient(90deg, #22c55e, #4f46e5);
-  transition: width 0.2s ease;
-}
-
-.nav-links a:hover::after {
-  width: 100%;
-}
-
-.nav-actions {
-  display: flex;
-  gap: 10px;
-}
-
-.btn {
-  border: 1px solid transparent;
-  border-radius: 999px;
-  padding: 8px 18px;
-  font-size: 14px;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  transition: all 0.15s ease;
-  white-space: nowrap;
-  background: transparent;
-  color: inherit;
-}
-
-.btn-ghost {
-  background: transparent;
-  border-color: rgba(148, 163, 184, 0.4);
-  color: var(--muted);
-}
-
-.btn-ghost:hover {
-  border-color: rgba(148, 163, 184, 0.7);
-  color: #e5e7eb;
-  background: rgba(15, 23, 42, 0.8);
-}
-
-.btn-primary {
-  background: linear-gradient(135deg, #4f46e5, #6366f1);
-  color: white;
-  box-shadow: 0 12px 30px rgba(79, 70, 229, 0.5);
-}
-
-.btn-primary:hover {
-  filter: brightness(1.05);
-  transform: translateY(-1px);
-  box-shadow: 0 14px 34px rgba(79, 70, 229, 0.6);
-}
-
-/* HERO */
-
-main {
-  flex: 1;
-}
-
-.hero {
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 42px 20px 40px;
-  display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
-  gap: 36px;
-  align-items: center;
-}
-
-@media (max-width: 900px) {
-  .nav-links {
-    display: none;
-  }
-  .hero {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
-
-.hero-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 4px 10px;
-  border-radius: 999px;
-  border: 1px solid rgba(148, 163, 184, 0.5);
-  background: radial-gradient(
-    circle at top left,
-    rgba(96, 165, 250, 0.18),
-    rgba(15, 23, 42, 0.9)
-  );
-  font-size: 11px;
-  color: var(--muted);
-  margin-bottom: 14px;
-}
-
-.hero-tag-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 999px;
-  background: radial-gradient(circle, #22c55e, #16a34a);
-  box-shadow: 0 0 10px rgba(34, 197, 94, 0.7);
-}
-
-.hero-title {
-  font-size: clamp(32px, 3.1vw, 40px);
-  font-weight: 700;
-  line-height: 1.1;
-  margin-bottom: 14px;
-}
-
-.hero-title span {
-  background: linear-gradient(120deg, #22c55e, #a855f7, #38bdf8);
-  -webkit-background-clip: text;
-  color: transparent;
-}
-
-.hero-subtitle {
-  font-size: 14px;
-  color: var(--muted);
-  max-width: 460px;
-  margin-bottom: 24px;
-}
-
-.hero-cta {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-.hero-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  font-size: 12px;
-  color: var(--muted);
-}
-
-.hero-meta b {
-  color: #e5e7eb;
-}
-
-/* HERO RIGHT PANEL */
-
-.hero-panel {
-  border-radius: 24px;
-  background: radial-gradient(
-    circle at top,
-    rgba(79, 70, 229, 0.15),
-    rgba(15, 23, 42, 0.98)
-  );
-  border: 1px solid rgba(148, 163, 184, 0.22);
-  box-shadow: var(--shadow-soft);
-  padding: 18px 18px 16px;
-}
-
-.hero-panel-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 8px;
-}
-
-.hero-panel-title {
-  font-size: 13px;
-  color: var(--muted);
-}
-
-.hero-panel-pill {
-  font-size: 11px;
-  padding: 4px 9px;
-  border-radius: 999px;
-  border: 1px solid rgba(148, 163, 184, 0.5);
-  color: var(--muted);
-}
-
-.markets-list {
-  margin-top: 4px;
-  display: grid;
-  gap: 8px;
-}
-
-.market-card {
-  background: rgba(15, 23, 42, 0.95);
-  border-radius: 14px;
-  padding: 10px 12px;
-  border: 1px solid rgba(148, 163, 184, 0.24);
-  display: grid;
-  grid-template-columns: 1.7fr auto;
-  gap: 10px;
-  align-items: center;
-  cursor: pointer;
-  transition: transform 0.12s ease, box-shadow 0.12s ease,
-    border-color 0.12s ease;
-}
-
-.market-card:hover {
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-subtle);
-  border-color: rgba(129, 140, 248, 0.9);
-}
-
-.market-question {
-  font-size: 12px;
-  margin-bottom: 4px;
-}
-
-.market-meta {
-  font-size: 11px;
-  color: var(--muted);
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.badge {
-  padding: 2px 8px;
-  border-radius: 999px;
-  border: 1px solid rgba(148, 163, 184, 0.5);
-}
-
-.badge-green {
-  border-color: rgba(34, 197, 94, 0.6);
-  color: #bbf7d0;
-}
-
-.badge-red {
-  border-color: rgba(239, 68, 68, 0.7);
-  color: #fecaca;
-}
-
-.market-prices {
-  display: grid;
-  gap: 4px;
-  font-size: 11px;
-}
-
-.pill {
-  padding: 4px 8px;
-  border-radius: 999px;
-  font-weight: 600;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-}
-
-.pill-yes {
-  background: rgba(34, 197, 94, 0.16);
-  color: #bbf7d0;
-}
-
-.pill-no {
-  background: rgba(239, 68, 68, 0.16);
-  color: #fecaca;
-}
-
-.panel-footer {
-  margin-top: 10px;
-  font-size: 11px;
-  color: var(--muted);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* GENERIC SECTIONS */
-
-.section {
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 10px 20px 40px;
-}
-
-.section-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-bottom: 18px;
-  gap: 18px;
-}
-
-.section-title {
-  font-size: 20px;
-  font-weight: 600;
-}
-
-.section-subtitle {
-  font-size: 13px;
-  color: var(--muted);
-  max-width: 420px;
-}
-
-/* HOW IT WORKS */
-
-.steps-grid {
-  display: grid;
-  gap: 14px;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-@media (max-width: 900px) {
-  .steps-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
-
-.step-card {
-  border-radius: var(--card-radius);
-  background: radial-gradient(
-    circle at top left,
-    rgba(56, 189, 248, 0.12),
-    rgba(15, 23, 42, 0.95)
-  );
-  border: 1px solid rgba(148, 163, 184, 0.3);
-  padding: 14px 16px 16px;
-  box-shadow: var(--shadow-subtle);
-}
-
-.step-number {
-  width: 26px;
-  height: 26px;
-  border-radius: 999px;
-  border: 1px solid rgba(148, 163, 184, 0.6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 12px;
-  margin-bottom: 8px;
-  color: var(--muted);
-}
-
-.step-title {
-  font-size: 14px;
-  font-weight: 600;
-  margin-bottom: 4px;
-}
-
-.step-text {
-  font-size: 13px;
-  color: var(--muted);
-}
-
-/* FEATURED MARKETS */
-
-.markets-grid {
-  display: grid;
-  gap: 12px;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-
-@media (max-width: 1024px) {
-  .markets-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 640px) {
-  .markets-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
-
-.market-card-large {
-  border-radius: var(--card-radius);
-  background: radial-gradient(
-    circle at top,
-    rgba(79, 70, 229, 0.16),
-    rgba(15, 23, 42, 0.98)
-  );
-  border: 1px solid rgba(148, 163, 184, 0.3);
-  padding: 14px 14px 12px;
-  box-shadow: var(--shadow-subtle);
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.market-category {
-  font-size: 11px;
-  color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
-.market-question-lg {
-  font-size: 13px;
-  font-weight: 500;
-}
-
-.market-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11px;
-  color: var(--muted);
-}
-
-/* WHY USE */
-
-.value-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
-}
-
-@media (max-width: 900px) {
-  .value-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
-
-.value-card {
-  border-radius: var(--card-radius);
-  background: radial-gradient(
-    circle at top left,
-    rgba(22, 163, 74, 0.12),
-    rgba(15, 23, 42, 0.96)
-  );
-  border: 1px solid rgba(148, 163, 184, 0.32);
-  padding: 14px 16px;
-}
-
-.value-title {
-  font-size: 14px;
-  font-weight: 600;
-  margin-bottom: 4px;
-}
-
-.value-text {
-  font-size: 13px;
-  color: var(--muted);
-}
-
-/* SECURITY */
-
-.security-card {
-  border-radius: 20px;
-  background: radial-gradient(
-    circle at top,
-    rgba(56, 189, 248, 0.12),
-    rgba(8, 47, 73, 0.95)
-  );
-  border: 1px solid rgba(148, 163, 184, 0.36);
-  padding: 16px 18px;
-  display: grid;
-  grid-template-columns: 1.5fr 1fr;
-  gap: 18px;
-  box-shadow: var(--shadow-soft);
-}
-
-@media (max-width: 900px) {
-  .security-card {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
-
-.security-list {
-  margin-top: 8px;
-  font-size: 13px;
-  color: var(--muted);
-}
-
-.security-list li {
-  margin-bottom: 4px;
-}
-
-.security-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 11px;
-  padding: 4px 9px;
-  border-radius: 999px;
-  background: rgba(15, 23, 42, 0.9);
-  border: 1px solid rgba(148, 163, 184, 0.4);
-  color: var(--muted);
-}
-
-.security-badge span {
-  width: 8px;
-  height: 8px;
-  border-radius: 999px;
-  background: #22c55e;
-  box-shadow: 0 0 10px rgba(34, 197, 94, 0.7);
-}
-
-/* FAQ */
-
-.faq-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
-}
-
-@media (max-width: 900px) {
-  .faq-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
-
-.faq-item {
-  border-radius: 16px;
-  background: rgba(15, 23, 42, 0.95);
-  border: 1px solid rgba(148, 163, 184, 0.3);
-  padding: 12px 14px;
-}
-
-.faq-q {
-  font-size: 13px;
-  font-weight: 600;
-  margin-bottom: 3px;
-}
-
-.faq-a {
-  font-size: 13px;
-  color: var(--muted);
-}
-
-/* FOOTER */
-
-footer {
-  border-top: 1px solid rgba(148, 163, 184, 0.2);
-  padding: 18px 20px 22px;
-  font-size: 11px;
-  color: var(--muted);
-  background: rgba(3, 7, 18, 0.98);
-}
-
-.footer-inner {
-  max-width: 1120px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-.footer-links {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.risk-text {
-  margin-top: 6px;
-  max-width: 700px;
-  font-size: 10px;
-  opacity: 0.85;
 }
